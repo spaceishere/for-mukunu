@@ -145,7 +145,8 @@ export default function RomanticProposal() {
         setShowConfetti(true);
       } catch (e: unknown) {
         setSending(false);
-        const message = e instanceof Error ? e.message : "Имэйл илгээж чадсангүй";
+        const message =
+          e instanceof Error ? e.message : "Имэйл илгээж чадсангүй";
         setError(message);
       }
       return;
@@ -228,10 +229,6 @@ export default function RomanticProposal() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
 
-            <p className="text-2xl text-center text-gray-700 font-medium">
-              Надтай болзохуу? 💝
-            </p>
-
             <div className="flex gap-4">
               <button
                 onClick={() => {
@@ -241,7 +238,6 @@ export default function RomanticProposal() {
                 className="flex-1 group relative overflow-hidden px-6 py-4 rounded-xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-white font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  <Heart className="w-5 h-5" />
                   Тийм
                 </span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -306,7 +302,7 @@ export default function RomanticProposal() {
           />
 
           <p className="text-xl text-center text-gray-700 font-medium">
-            Би заавал буцаж ирнээ амлаж байна. 🦇💔
+            Харамсалтай байна. 🦇💔
           </p>
         </div>
       )}
@@ -447,7 +443,10 @@ export default function RomanticProposal() {
                       placeholder="Өөр кино санал болгох..."
                       value={formData.customMovie}
                       onChange={(e) =>
-                        setFormData({ ...formData, customMovie: e.target.value })
+                        setFormData({
+                          ...formData,
+                          customMovie: e.target.value,
+                        })
                       }
                       className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-rose-500 focus:ring-4 focus:ring-rose-100 outline-none transition-all duration-300"
                     />
