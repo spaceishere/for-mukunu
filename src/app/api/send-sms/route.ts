@@ -51,10 +51,8 @@ export async function POST(request: Request) {
 
     const data = await res.json();
     return NextResponse.json({ success: true, sid: data.sid });
-  } catch (e: any) {
-    return NextResponse.json(
-      { error: e?.message || "Тодорхойгүй алдаа" },
-      { status: 500 }
-    );
+  } catch (e: unknown) {
+    const message = e instanceof Error ? e.message : "Тодорхойгүй алдаа";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

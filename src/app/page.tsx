@@ -143,9 +143,10 @@ export default function RomanticProposal() {
         setShowModal(false);
         setCurrentView("success");
         setShowConfetti(true);
-      } catch (e: any) {
+      } catch (e: unknown) {
         setSending(false);
-        setError(e?.message || "Имэйл илгээж чадсангүй");
+        const message = e instanceof Error ? e.message : "Имэйл илгээж чадсангүй";
+        setError(message);
       }
       return;
     }
